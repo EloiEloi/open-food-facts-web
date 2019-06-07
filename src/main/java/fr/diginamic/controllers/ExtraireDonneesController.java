@@ -17,6 +17,7 @@ public class ExtraireDonneesController extends HttpServlet {
 
 		// Récupérer la session existante ou création d'une session
 		HttpSession session = req.getSession(true);
+
 		// Stocker un utilisateur
 		// session.setAttribute("utilisateur", "eloi");
 
