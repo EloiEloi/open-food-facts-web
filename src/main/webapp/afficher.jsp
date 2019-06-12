@@ -41,30 +41,12 @@
 			<table class="table table-hover">
 			  <thead>
 			    <tr>
-			    
-			    <% 
-				
-					
-					Field[] fields = liste.get(0).getClass().getDeclaredFields();
-				 
-					for (Field f : fields) {
-						f.setAccessible(true);
-						
-						%>
-						
-						<th scope="col"><%= f.getName()	%></th>
-						
-						<%
-						
-					}
-				
-				
-				
-				%>
-			    
-			    
-			      
-			      
+			  	  <th scope="col">id</th>
+			   	 <th scope="col">nom</th>
+			  	  <th scope="col">energie</th>
+			  	  <th scope="col">fibre</th>
+			  	  <th scope="col">grade nutri.</th>
+			  	  <th scope="col">graisse</th>  
 			    </tr>
 			  </thead>
 			  
@@ -75,46 +57,25 @@
 			  
 			  <% 
 			  
-				for (Produit prod : liste) { 
-					
-					%>
-					
-					<tr>
-					
-					<%
-					Field[] fields2 = prod.getClass().getDeclaredFields();
-				 
-					for (int i=0; i<fields2.length; i++) {
-						fields2[i].setAccessible(true);
-						
-						if(fields2[i].getName() == "id") {
-							%>
-							
-							<th scope="row"><%= fields2[i].get(prod)	%></th>
-							
-							<%
-						} else {
-							%>
-							
-							<th><%= fields2[i].get(prod)	%></th>
-							
-							<%
-						}
-						
-						
-						
-						
-					}
-					%>
-					
-					</tr>
-					
-					<%
-				}
-				
-				%>
+			  for (Produit prod : liste) { 
+				  %>
+				  <tr>
+				  <th scope="row"><%= prod.getId()%></th>
+				  <th><a class="afficher-<%= prod.getId()  %>" href=""><%= prod.getNom()%></a></th>
+				  <th><%= prod.getEnergie()%></th>
+				  <th><%= prod.getFibre()%></th>
+				  <th><%= prod.getGrade()%></th>
+				  <th><%= prod.getGraisse()%></th>
+				  </tr>
+				  
+				  <%
+			  }
+			  
+			  %>
 			  
 			  
+			  
+	
 			  
 			    
 			  </tbody>
